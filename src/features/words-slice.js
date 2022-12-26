@@ -23,7 +23,7 @@ export const words = createSlice({
       state.word = action.payload
     },
     resetWord: (state, action) => {
-      state.word = state.word
+      state.word = ''
     },
     wordAdd: (state, action) => {
       state.data.push(action.payload)
