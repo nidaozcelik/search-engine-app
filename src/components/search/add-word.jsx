@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { useSelector, useDispatch } from "react-redux"
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -6,8 +6,11 @@ import InputGroup from 'react-bootstrap/InputGroup'
 import { wordAdd, resetWord, setNotifications, resetNotifications, setShowNotification } from "../../features/words-slice"
 import Toast from 'react-bootstrap/Toast'
 import ToastContainer from 'react-bootstrap/ToastContainer'
+import { SearchContext } from './search-context'
 
-const AddWord = ({ word, setAddWord }) => {
+const AddWord = () => {
+  const { word, setAddWord } = useContext(SearchContext)
+
   const dispatch = useDispatch()
   const [meaning, setMeaning] = useState()
 

@@ -1,7 +1,7 @@
 import Search from './components/search'
 import { BrowserRouter } from 'react-router-dom'
-import { Routes, Route, } from "react-router-dom";
-import Account from './components/search/account'
+import { Routes, Route, } from 'react-router-dom';
+import Account from './components/account'
 import Navbar from './components/layout/navbar'
 
 function App() {
@@ -11,8 +11,8 @@ function App() {
         <BrowserRouter>
           <Navbar />
           <Routes>
-            <Route path="/" element={<Search />} />
-            <Route path="/account" element={<Account />} />
+            <Route path='/' element={<Search />} />
+            <Route path='/account' element={<Account />} />
           </Routes>
         </BrowserRouter>
       </div>

@@ -1,6 +1,8 @@
-import React, { } from 'react'
+import React, { useContext } from 'react'
+import { SearchContext } from './search-context'
 
-const SearchContent = ({ showData }) => {
+const SearchContent = () => {
+  const { showData } = useContext(SearchContext)
 
   return <>
     {
