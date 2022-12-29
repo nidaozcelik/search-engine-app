@@ -1,8 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const words = createSlice({
-  name: 'words',
-  initialState: {
+const initialState = {
+  words: {
     data: [
       {
         name: 'book',
@@ -13,37 +12,63 @@ export const words = createSlice({
         meaning: 'a car or automobile is a motor vehicle with wheels. Most definitions of cars say that they run primarily on roads, seat one to eight people, have four wheels, and mainly transport people instead of goods.',
       }
     ],
-    word: '',
-    notifications: [],
+    showWord: [],
+    searchedWord: '',
+  },
+  createWord: {
+    showCreateModal: false
+  },
+  notifications: {
+    notificationsList: [],
     showNotification: false
   },
+}
 
+export const words = createSlice({
+  name: 'words',
+  initialState: initialState,
   reducers: {
-    setWord: (state, action) => {
-      state.word = action.payload
+    setSearchedWord: (state, action) => {
+      state.words.searchedWord = action.payload
     },
-    resetWord: (state, action) => {
-      state.word = ''
+    resetSearchedWord: (state, action) => {
+      state.words.searchedWord = initialState.words.searchedWord
     },
-    wordAdd: (state, action) => {
-      state.data.push(action.payload)
+    createWord: (state, action) => {
+      state.words.data.push(action.payload)
+    },
+    setShowWord: (state, action) => {
+      state.words.showWord = action.payload
+    },
+    resetShowWord: (state, action) => {
+      state.words.showWord = initialState.words.showWord
+    },
+    setShowCreateModal: (state, action) => {
+      state.createWord.showCreateModal = action.payload
+    },
+    resetShowCreateModal: (state, action) => {
+      state.createWord.showCreateModal = initialState.createWord.showCreateModal
     },
     setNotifications: (state, action) => {
-      state.notifications.push(action.payload)
+      state.notifications.notificationsList.push(action.payload)
     },
     setShowNotification: (state, action) => {
-      state.showNotification = action.payload
+      state.notifications.showNotification = action.payload
     },
     resetNotifications: (state, action) => {
-      state.notifications = []
+      state.notifications = initialState.notifications
     }
   }
-});
+})
 
 export const {
-  setWord,
-  resetWord,
-  wordAdd,
+  setSearchedWord,
+  resetSearchedWord,
+  createWord,
+  setShowWord,
+  resetShowWord,
+  setShowCreateModal,
+  resetShowCreateModal,
   setNotifications,
   resetNotifications,
   setShowNotification
