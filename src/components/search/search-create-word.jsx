@@ -35,8 +35,8 @@ const SearchCreateWord = () => {
   }
 
   useEffect(() => {
-    resetNotifications()
-  }, [])
+    dispatch(resetNotifications())
+  }, [dispatch])
 
   return <div className='add-word'>
     <Modal show={showCreateModal} onHide={handleClose} animation={false}>

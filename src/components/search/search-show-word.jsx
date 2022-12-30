@@ -9,7 +9,7 @@ const SearchShowWord = () => {
 
   useEffect(() => {
     dispatch(resetShowCreateModal())
-  }, [showWord])
+  }, [dispatch, showWord])
 
   return <>
     {
