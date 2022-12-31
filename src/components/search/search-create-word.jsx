@@ -8,7 +8,7 @@ import { SearchContext } from './search-context'
 
 const SearchCreateWord = () => {
   const dispatch = useDispatch()
-  const { searchedWord, showCreateModal,resetSearchWord } = useContext(SearchContext)
+  const { searchedWord, showCreateModal, resetSearchWord } = useContext(SearchContext)
 
   const [meaning, setMeaning] = useState('')
 
@@ -39,10 +39,15 @@ const SearchCreateWord = () => {
     dispatch(resetNotifications())
   }, [dispatch])
 
-  return <div className='add-word'>
-    <Modal show={showCreateModal} onHide={handleClose} animation={false}>
+  return <div>
+    <Modal
+      show={showCreateModal}
+      onHide={handleClose}
+      animation={false}
+      size="lg"
+      className="search-create-modal-content">
       <Modal.Header closeButton>
-        <Modal.Title>{searchedWord}</Modal.Title>
+        <Modal.Title>Word: {searchedWord}</Modal.Title>
       </Modal.Header>
       <Modal.Body>
         <Form>
