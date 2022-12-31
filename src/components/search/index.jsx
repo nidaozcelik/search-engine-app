@@ -3,12 +3,12 @@ import { useSelector, useDispatch } from 'react-redux'
 import Toast from 'react-bootstrap/Toast'
 import ToastContainer from 'react-bootstrap/ToastContainer'
 import {
-  setSearchedWord, setShowWord, resetShowWord, setShowCreateModal, setNotifications,
+  setSearchedWord, setShowWord, resetShowWord, setShowCreateModal, setNotifications, resetSearchedWord,
   resetNotifications, setShowNotification
 } from '../../features/words-slice'
-import { SearchContext } from './search-context'
 import SearchShowWord from './search-show-word'
 import SearchCreateWord from './search-create-word'
+import { SearchContext } from './search-context'
 
 const Search = () => {
   const dispatch = useDispatch()
@@ -26,6 +26,10 @@ const Search = () => {
 
   const handChangeWordState = (e) => {
     dispatch(setSearchedWord(e))
+  }
+
+  const resetSearchWord= () => {
+    dispatch(resetSearchedWord())
   }
 
   const handleOnClickSearch = () => {
@@ -50,12 +54,13 @@ const Search = () => {
     notificationsList,
     showNotification,
     showCreateModal,
+    resetSearchWord
   }
 
   return <SearchContext.Provider value={contextValue}>
     <div className='search-wrapper'>
       <div className='search-header'>
-      <div className='search-title'>Dictionary</div>
+        <div className='search-title'>Dictionary</div>
         <div className='search-box'>
           <input
             placeholder='What are you looking for? (e.g., book, car...)'

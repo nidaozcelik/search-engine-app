@@ -3,17 +3,18 @@ import { useDispatch } from 'react-redux'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-import { createWord,resetSearchedWord, resetShowCreateModal, setNotifications, resetNotifications, setShowNotification } from '../../features/words-slice'
+import { createWord, resetShowCreateModal, setNotifications, resetNotifications, setShowNotification } from '../../features/words-slice'
 import { SearchContext } from './search-context'
 
 const SearchCreateWord = () => {
   const dispatch = useDispatch()
-  const { searchedWord, showCreateModal } = useContext(SearchContext)
+  const { searchedWord, showCreateModal,resetSearchWord } = useContext(SearchContext)
 
   const [meaning, setMeaning] = useState('')
 
   const handleClose = () => {
     dispatch(resetShowCreateModal())
+    resetSearchWord()
   }
 
   const handleOnClickCreateWord = () => {
@@ -27,7 +28,7 @@ const SearchCreateWord = () => {
 
     handleClose()
     dispatch(setShowNotification(true))
-    dispatch(resetSearchedWord())
+    resetSearchWord()
   }
 
   const handleChangeMeaning = (e) => {
