@@ -55,6 +55,7 @@ const Search = () => {
   return <SearchContext.Provider value={contextValue}>
     <div className='search-wrapper'>
       <div className='search-header'>
+      <div className='search-title'>Dictionary</div>
         <div className='search-box'>
           <input
             placeholder='What are you looking for? (e.g., book, car...)'

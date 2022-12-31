@@ -8,6 +8,7 @@ const SearchShowWord = () => {
   const { showWord } = useContext(SearchContext)
 
   useEffect(() => {
+    console.log('debug')
     dispatch(resetShowCreateModal())
   }, [dispatch, showWord])
 
