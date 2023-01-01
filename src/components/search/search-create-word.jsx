@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useState, useContext } from 'react'
 import { useDispatch } from 'react-redux'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
@@ -8,7 +8,7 @@ import { SearchContext } from './search-context'
 
 const SearchCreateWord = () => {
   const dispatch = useDispatch()
-  const { searchedWord, showCreateModal, resetSearchWord, showNotificationModal, resetNotificationModal } = useContext(SearchContext)
+  const { searchedWord, showCreateModal, resetSearchWord, showNotificationModal } = useContext(SearchContext)
 
   const [meaning, setMeaning] = useState('')
 
@@ -32,10 +32,6 @@ const SearchCreateWord = () => {
   const handleChangeMeaning = (e) => {
     setMeaning(e)
   }
-
-  useEffect(() => {
-    resetNotificationModal()
-  }, [dispatch])
 
   return <div>
     <Modal
