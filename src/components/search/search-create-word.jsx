@@ -3,12 +3,12 @@ import { useDispatch } from 'react-redux'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import Modal from 'react-bootstrap/Modal'
-import { createWord, resetShowCreateModal, setNotifications, resetNotifications, setShowNotification } from '../../features/words-slice'
+import { createWord, resetShowCreateModal, setNotifications } from '../../features/ui-slice'
 import { SearchContext } from './search-context'
 
 const SearchCreateWord = () => {
   const dispatch = useDispatch()
-  const { searchedWord, showCreateModal, resetSearchWord } = useContext(SearchContext)
+  const { searchedWord, showCreateModal, resetSearchWord, showNotificationModal, resetNotificationModal } = useContext(SearchContext)
 
   const [meaning, setMeaning] = useState('')
 
@@ -18,16 +18,14 @@ const SearchCreateWord = () => {
   }
 
   const handleOnClickCreateWord = () => {
-    dispatch(createWord({ name: searchedWord, meaning: meaning }))
+    dispatch(createWord([{ word: searchedWord, definition: meaning }]))
     dispatch(setNotifications(
       {
-        key: Math.random(),
         status: 'Success',
         message: 'Successfully saved.'
       }))
-
     handleClose()
-    dispatch(setShowNotification(true))
+    showNotificationModal(true)
     resetSearchWord()
   }
 
@@ -36,7 +34,7 @@ const SearchCreateWord = () => {
   }
 
   useEffect(() => {
-    dispatch(resetNotifications())
+    resetNotificationModal()
   }, [dispatch])
 
   return <div>

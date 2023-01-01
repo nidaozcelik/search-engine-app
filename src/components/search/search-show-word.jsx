@@ -1,15 +1,17 @@
-import React, { useContext } from 'react'
-import { SearchContext } from './search-context'
+import React from 'react'
+import { useSelector } from 'react-redux'
 
 const SearchShowWord = () => {
-  const { showWord } = useContext(SearchContext)
+  const { words: { searchedWord, meanings }, createWord: { createdWords } } = useSelector(state => state.words)
 
   return <>
     {
-      (showWord || []).map(data => {
+      (meanings || (createdWords && createdWords[0].word === searchedWord)) && searchedWord &&
+      (meanings || createdWords || []).slice(0, 2).map(meaning => {
         return <div key={Math.random()}>
-          <span className='content-name'>{data.name}; </span>
-          <span className='content-meaning'>{data.meaning}</span>
+          <ul>
+            <li className='content-meaning'>{meaning.definition}</li>
+          </ul>
         </div>
       })
     }

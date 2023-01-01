@@ -2,26 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   words: {
-    data: [
-      {
-        name: 'book',
-        meaning: 'a book is a medium for recording information in the form of writing or images, typically composed of many pages (made of papyrus, parchment, vellum, or paper) bound together and protected by a cover',
-      },
-      {
-        name: 'car',
-        meaning: 'a car or automobile is a motor vehicle with wheels. Most definitions of cars say that they run primarily on roads, seat one to eight people, have four wheels, and mainly transport people instead of goods.',
-      }
-    ],
+    meanings: null,
     showWord: [],
     searchedWord: '',
   },
   createWord: {
+    createdWords: null,
     showCreateModal: false
   },
   notifications: {
-    notificationsList: [],
+    notificationsList: null,
     showNotification: false
-  },
+  }
 }
 
 export const words = createSlice({
@@ -34,8 +26,14 @@ export const words = createSlice({
     resetSearchedWord: (state, action) => {
       state.words.searchedWord = initialState.words.searchedWord
     },
+    setMeaning: (state, action) => {
+      state.words.meanings = action.payload
+    },
+    resetMeaning: (state, action) => {
+      state.words.meanings = initialState.words.meanings
+    },
     createWord: (state, action) => {
-      state.words.data.push(action.payload)
+      state.createWord.createdWords = action.payload
     },
     setShowWord: (state, action) => {
       state.words.showWord = action.payload
@@ -50,7 +48,7 @@ export const words = createSlice({
       state.createWord.showCreateModal = initialState.createWord.showCreateModal
     },
     setNotifications: (state, action) => {
-      state.notifications.notificationsList.push(action.payload)
+      state.notifications.notificationsList = action.payload
     },
     setShowNotification: (state, action) => {
       state.notifications.showNotification = action.payload
@@ -64,6 +62,8 @@ export const words = createSlice({
 export const {
   setSearchedWord,
   resetSearchedWord,
+  setMeaning,
+  resetMeaning,
   createWord,
   setShowWord,
   resetShowWord,
