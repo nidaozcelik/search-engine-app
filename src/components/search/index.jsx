@@ -1,23 +1,25 @@
 import React, { useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import Button from 'react-bootstrap/Button'
 import Toast from 'react-bootstrap/Toast'
 import ToastContainer from 'react-bootstrap/ToastContainer'
 import {
   setSearchedWord, resetShowWord, setShowCreateModal, resetSearchedWord,
-  resetNotifications, setShowNotification, setMeaning, resetMeaning
-} from '../../features/ui-slice'
+  resetNotifications, setShowNotification, setMeaning, resetMeaning, useGetWordQuery
+} from '../../features'
 import SearchShowWord from './search-show-word'
 import SearchCreateWord from './search-create-word'
 import { SearchContext } from './search-context'
-import { useGetWordQuery } from '../../features'
+import PageLoading from '../loading/page-loading'
 
 const Search = () => {
   const dispatch = useDispatch()
   const { words: { showWord, searchedWord, meanings }, createWord: { showCreateModal }, notifications: { notificationsList, showNotification } } = useSelector(state => state.words)
 
   const {
-    currentData: data
-  } = useGetWordQuery(searchedWord, { skip: !searchedWord })
+    currentData: data,
+    isLoading
+  } = useGetWordQuery(searchedWord, { skip: !searchedWord || (searchedWord && searchedWord.length < 3) })
 
   useEffect(() => {
     if (data) {
@@ -83,13 +85,15 @@ const Search = () => {
           <svg class='w-6 h-6 search-icon' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'></path></svg>
         </div>
         {
-          searchedWord && !meanings && <div className='search-button'>
-            <button className='add' onClick={handleOnClickCreateWord} disabled={!searchedWord}>+</button>
+          searchedWord && (!meanings && !isLoading) && <div className='search-button'>
+            <Button variant='secondary' onClick={handleOnClickCreateWord}>+</Button>
           </div>
         }
       </div>
       <div className='search-content'>
-        <SearchShowWord />
+        {
+          isLoading ? <PageLoading /> : <SearchShowWord />
+        }
         <ToastContainer position='top-end' className='p-3'>
           {
             notificationsList &&

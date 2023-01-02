@@ -63,12 +63,17 @@
   border-radius: 50%;
   border: none;
   font-size: 44px;
+  background-color: #fff;
   color: #7e7373;
   cursor: pointer;
   margin-left: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.search-button button:hover {
+  background-color: #c42b77;
 }
 
 .search-content {
@@ -83,13 +88,13 @@
 }
 
 .content-meaning {
-  color: #fff;
+  color: #41719f;
   font-size: 18px;
 }
 
 .navbar-menu {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   margin-top: 2rem;
   cursor: pointer;
   font-size: 18px;
@@ -98,7 +103,7 @@
 .navbar-menu-link a {
   margin-left: 1rem;
   text-decoration: none;
-  color: #fff;
+  color: #41719f;
 }
 
 .navbar-menu-info {
