@@ -1,0 +1,24 @@
+.search-button {
+  justify-content: center;
+  display: flex;
+  margin-top: 1rem;
+}
+
+.search-button button {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  border: none;
+  font-size: 44px;
+  background-color: #fff;
+  color: #7e7373;
+  cursor: pointer;
+  margin-left: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.search-button button:hover {
+  background-color: #c42b77;
+}

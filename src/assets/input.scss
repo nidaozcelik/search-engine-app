@@ -1,0 +1,38 @@
+.search-box {
+  position: relative;
+
+  input {
+    width: 40rem;
+    padding: 1rem 4rem;
+    font-size: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 20px 30px 0 rgba(0, 0, 0, 0.1);
+    border: 0;
+    border: 2px solid transparent;
+
+    &:focus {
+      outline: none;
+      border-color: #ff99cc;
+    }
+  }
+
+  input::placeholder {
+    font-size: 1.4rem;
+  }
+
+  .search-icon {
+    width: 2rem;
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%)
+  }
+}
+
+@media (max-width: 480px) {
+  .search-box {  
+    input {
+      width: 26rem;
+    }
+  }  
+}
