@@ -13,3 +13,9 @@
   color: #41719f;
   font-size: 18px;
 }
+
+@media (max-width: 480px) {
+  .content-meaning {
+    font-size: 14px;
+  }
+}

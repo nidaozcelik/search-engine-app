@@ -33,6 +33,11 @@
   .search-box {  
     input {
       width: 22rem;
+      font-size: 1.4rem;
     }
   }  
+
+ .input::placeholder {
+    font-size: 1.2rem;
+  }
 }
