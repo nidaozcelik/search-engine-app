@@ -30,14 +30,18 @@
 }
 
 @media (max-width: 480px) {
-  .search-box {  
+  .search-box {
     input {
       width: 22rem;
-      font-size: 1.4rem;
+      font-size: 1.6rem;
     }
-  }  
 
- .input::placeholder {
-    font-size: 1.2rem;
+    .search-icon {
+      width: 1.4rem;
+    }
+
+    .input::placeholder {
+      font-size: 1.2rem;
+    }
   }
 }
