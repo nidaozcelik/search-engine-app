@@ -9,8 +9,9 @@ import {
 } from '../../features'
 import SearchShowWord from './search-show-word'
 import SearchCreateWord from './search-create-word'
-import { SearchContext } from './search-context'
 import PageLoading from '../loading/page-loading'
+import VoiceSearch from '../voice-search'
+import { SearchContext } from './search-context'
 
 const Search = () => {
   const dispatch = useDispatch()
@@ -82,7 +83,10 @@ const Search = () => {
             value={searchedWord}
           >
           </input>
-          <svg class='w-6 h-6 search-icon' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'></path></svg>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search input-icons search-icon" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+          </svg>
+          <VoiceSearch />
         </div>
         {
           searchedWord && (!meanings && !isLoading) && <div className='search-button'>
