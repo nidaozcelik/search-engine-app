@@ -4,18 +4,25 @@
 
 .content-name {
   font-size: 24px;
-  color: #c42b77;
   font-weight: bold;
   font-family: cursive;
 }
 
 .content-meaning {
   color: #41719f;
-  font-size: 18px;
+  font-size: 20px;
+  margin-bottom: 1rem;
+}
+
+.content-meaning svg {
+  vertical-align: middle;
+  width: 1rem;
+  height: 1rem;
+  margin-right: 1rem;
 }
 
 @media (max-width: 480px) {
   .content-meaning {
-    font-size: 14px;
+    font-size: 16px;
   }
 }

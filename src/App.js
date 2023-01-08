@@ -1,7 +1,7 @@
 import Search from './components/search'
 import { BrowserRouter } from 'react-router-dom'
 import { Routes, Route, } from 'react-router-dom';
-import Account from './components/account'
+import History from './components/history'
 import Navbar from './components/layout/navbar'
 
 function App() {
@@ -12,7 +12,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path='/' element={<Search />} />
-            <Route path='/account' element={<Account />} />
+            <Route path='/history' element={<History />} />
           </Routes>
         </BrowserRouter>
       </div>

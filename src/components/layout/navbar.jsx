@@ -5,7 +5,7 @@ const Account = () => {
   return <div className='navbar-menu'>
     <div className='navbar-menu-link'>
     <Link to='/'> Search </Link>
-    <Link to='account'>Account Page</Link>
+    <Link to='history'>History</Link>
     </div>
   </div>
 }

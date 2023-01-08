@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux'
-import { setSearchedWord } from '../../features'
+import { setSearchedWord, setVoiceSearch } from '../../features'
 import SpeechRecognition, { useSpeechRecognition } from 'react-speech-recognition';
 
 const VoiceSearch = () => {
   const dispatch = useDispatch()
-  const { transcript, listening, } = useSpeechRecognition();
+  const { transcript, listening } = useSpeechRecognition();
 
   useEffect(() => {
     if (transcript) {
       dispatch(setSearchedWord(transcript))
+      dispatch(setVoiceSearch(true))
     }
   }, [dispatch, transcript])
 

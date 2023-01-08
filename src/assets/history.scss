@@ -1,0 +1,74 @@
+.history-accordion {
+  margin-top: 2rem;
+  height: 34rem;
+  overflow: scroll;
+}
+
+.history-warning {
+  font-size: 18px;
+  color: grey;
+}
+
+.history-accordion-label {
+  position: relative;
+  display: block;
+  padding: 0.8rem;
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #41719f;
+  font-weight: bold;
+  background-color: #fff;
+  margin-top: 0.8rem;
+  border-top-left-radius: 0.4rem;
+  font-size: 18px;
+}
+
+.history-accordion-item:last-child {
+  border-bottom: 6px solid #41719f;
+} 
+
+.history-accordion-item:first-child {
+  border-top: 6px solid #41719f;
+}
+
+.history-accordion-label:hover {
+  background-color: #41719f;
+  color: #fff;
+}
+
+.history-accordion-label svg {
+  vertical-align: middle;
+  width: 1.4rem;
+  height: 1.4rem;
+  margin-right: 1rem;
+}
+
+.history-accordion-content {
+  padding: 0px 15px;
+  margin: 0;
+  margin-bottom: 0.8rem;
+  height: 0;
+  font-size: 16px;
+  overflow: hidden;
+  position: relative;
+  opacity: 0;
+  -webkit-transition: 0.7s ease;
+  -moz-transition: 0.7s ease;
+  -o-transition: 0.7s ease;
+  transition: 0.7s ease;
+  background-color: #41719f;
+  color: #fff;
+}
+
+.history-accordion-input:checked~.history-accordion-content {
+  height: auto;
+  opacity: 1;
+  padding: 15px;
+}
+
+.history-accordion-input {
+  display: none;
+}

@@ -1,21 +1,23 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import Button from 'react-bootstrap/Button'
 import Toast from 'react-bootstrap/Toast'
 import ToastContainer from 'react-bootstrap/ToastContainer'
 import {
-  setSearchedWord, resetShowWord, setShowCreateModal, resetSearchedWord,
-  resetNotifications, setShowNotification, setMeaning, resetMeaning, useGetWordQuery
+  setSearchedWord, resetShowWord, setShowCreateModal, resetSearchedWord, resetNotifications, setShowNotification,
+  setMeaning, resetMeaning, useGetWordQuery, setVoiceSearch
 } from '../../features'
 import SearchShowWord from './search-show-word'
 import SearchCreateWord from './search-create-word'
 import PageLoading from '../loading/page-loading'
 import VoiceSearch from '../voice-search'
 import { SearchContext } from './search-context'
+const savedData = require('../../utilities/search-helper')
 
 const Search = () => {
   const dispatch = useDispatch()
-  const { words: { showWord, searchedWord, meanings }, createWord: { showCreateModal }, notifications: { notificationsList, showNotification } } = useSelector(state => state.words)
+  const { words: { showWord, searchedWord, meanings, voiceSearch }, createWord: { showCreateModal }, notifications: { notificationsList, showNotification } } = useSelector(state => state.words)
+  const [searchTerm, setSearchTerm] = useState('')
 
   const {
     currentData: data,
@@ -23,8 +25,17 @@ const Search = () => {
   } = useGetWordQuery(searchedWord, { skip: !searchedWord || (searchedWord && searchedWord.length < 3) })
 
   useEffect(() => {
+    dispatch(setVoiceSearch(false))
+    const delayDebounceFn = setTimeout(() => {
+      dispatch(setSearchedWord(searchTerm))
+    }, 500)
+    return () => clearTimeout(delayDebounceFn)
+  }, [dispatch, searchTerm])
+
+  useEffect(() => {
     if (data) {
       dispatch(setMeaning(data[0].meanings[0].definitions))
+      savedData(searchedWord)
     }
   }, [dispatch, data])
 
@@ -51,10 +62,6 @@ const Search = () => {
     dispatch(resetShowWord())
   }
 
-  const handChangeWordState = (e) => {
-    dispatch(setSearchedWord(e))
-  }
-
   const resetSearchWord = () => {
     dispatch(resetSearchedWord())
   }
@@ -67,7 +74,8 @@ const Search = () => {
     showCreateModal,
     resetSearchWord,
     showNotificationModal,
-    resetNotificationModal
+    resetNotificationModal,
+    isLoading
   }
 
   return <SearchContext.Provider value={contextValue}>
@@ -78,9 +86,12 @@ const Search = () => {
         </div>
         <div className='search-box'>
           <input
+            autoFocus
+            type='text'
+            autoComplete='off'
             placeholder='What are you looking for? (e.g., book, car...)'
-            onChange={(e) => handChangeWordState(e.target.value)}
-            value={searchedWord}
+            onChange={e => setSearchTerm(e.target.value)}
+            value={voiceSearch ? searchedWord : searchTerm}
           >
           </input>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search input-icons search-icon" viewBox="0 0 16 16">

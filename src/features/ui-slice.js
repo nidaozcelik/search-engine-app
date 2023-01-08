@@ -5,6 +5,7 @@ const initialState = {
     meanings: null,
     showWord: [],
     searchedWord: '',
+    voiceSearch: false
   },
   createWord: {
     createdWords: null,
@@ -25,6 +26,9 @@ export const words = createSlice({
     },
     resetSearchedWord: (state, action) => {
       state.words.searchedWord = initialState.words.searchedWord
+    },
+    setVoiceSearch: (state, action) => {
+      state.words.voiceSearch = action.payload
     },
     setMeaning: (state, action) => {
       state.words.meanings = action.payload
@@ -62,6 +66,7 @@ export const words = createSlice({
 export const {
   setSearchedWord,
   resetSearchedWord,
+  setVoiceSearch,
   setMeaning,
   resetMeaning,
   createWord,
