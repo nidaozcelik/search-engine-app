@@ -33,11 +33,11 @@ const Search = () => {
   }, [dispatch, searchTerm])
 
   useEffect(() => {
-    if (data) {
+    if (data && searchedWord) {
       dispatch(setMeaning(data[0].meanings[0].definitions))
       savedData(searchedWord)
     }
-  }, [dispatch, data])
+  }, [dispatch, data, searchedWord])
 
   useEffect(() => {
     if (!searchedWord) {
