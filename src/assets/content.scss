@@ -8,13 +8,13 @@
   font-family: cursive;
 }
 
-.content-meaning {
+.search-content-meaning {
   color: #41719f;
   font-size: 20px;
   margin-bottom: 1rem;
 }
 
-.content-meaning svg {
+.search-content-meaning svg {
   vertical-align: middle;
   width: 1rem;
   height: 1rem;
@@ -22,7 +22,28 @@
 }
 
 @media (max-width: 480px) {
-  .content-meaning {
+  .search-content-meaning {
     font-size: 16px;
   }
+}
+
+.search-content-wrapper {
+  position: relative;
+  box-shadow: 0 20px 30px 0 rgb(0 0 0 / 10%);
+  padding: 1rem;
+  border-radius: 0.4rem;
+}
+
+.search-content-bookmark svg {
+  width: 2rem;
+  height: 1.8rem;
+  position: absolute;
+  top: 0;
+  right: 0;
+  cursor: pointer;
+  color: #919cb1;
+}
+
+.search-content-bookmark svg:hover {
+  color: #0b265d;
 }

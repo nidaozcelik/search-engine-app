@@ -1,6 +1,7 @@
 import Search from './components/search'
 import { BrowserRouter } from 'react-router-dom'
 import { Routes, Route, } from 'react-router-dom';
+import Bookmarks from './components/bookmarks'
 import History from './components/history'
 import Navbar from './components/layout/navbar'
 
@@ -12,6 +13,7 @@ function App() {
           <Navbar />
           <Routes>
             <Route path='/' element={<Search />} />
+            <Route path='/bookmarks' element={<Bookmarks />} />
             <Route path='/history' element={<History />} />
           </Routes>
         </BrowserRouter>

@@ -1,0 +1,61 @@
+.bookmarks {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  height: 34rem;
+  overflow: scroll;
+}
+
+.bookmark {
+  width: 19rem;
+  box-shadow: 10px 20px 20px 1px rgba(0, 0, 0, 0.05);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  margin-right: 1rem;
+  border-radius: 0.4rem;
+  position: relative;
+  border: 1px solid #e7e7e7;
+}
+
+.bookmarks-title {
+  font-size: 22px;
+  font-weight: bold;
+  border-bottom: 2px solid #000;
+  border-color: #e7e4e4;
+  color: #0b265d;
+  display: flex;
+  align-items: center;
+  padding-left: 1.2rem;
+}
+
+.bookmarks-title svg {
+  color: #0b265d;
+  width: 2rem;
+  height: 1.8rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.bookmarks-content {
+  font-size: 12px;
+  color: #41719f;
+}
+
+.bookmark-content {
+  margin: 1rem 0;
+}
+
+.bookmark-content svg {
+  margin-right: 0.5rem;
+}
+
+.bookmark-delete-icon {
+  position: absolute;
+  right: 0.4rem;
+  bottom: 0.6rem;
+  width: 2rem;
+  height: 1.4rem;
+  color: #9f1313;
+  cursor: pointer;
+}

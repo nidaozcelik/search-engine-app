@@ -2,6 +2,7 @@
   margin-top: 2rem;
   height: 34rem;
   overflow: scroll;
+  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
 }
 
 .history-warning {
@@ -23,15 +24,8 @@
   background-color: #fff;
   margin-top: 0.8rem;
   border-top-left-radius: 0.4rem;
+  border-top-right-radius: 0.4rem;
   font-size: 18px;
-}
-
-.history-accordion-item:last-child {
-  border-bottom: 6px solid #41719f;
-} 
-
-.history-accordion-item:first-child {
-  border-top: 6px solid #41719f;
 }
 
 .history-accordion-label:hover {
