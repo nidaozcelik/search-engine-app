@@ -35,7 +35,7 @@ const Search = () => {
   useEffect(() => {
     if (data && searchedWord) {
       dispatch(setMeaning(data[0].meanings[0].definitions))
-      savedData(searchedWord)
+      savedData(searchedWord, 'history')
     }
   }, [dispatch, data, searchedWord])
 

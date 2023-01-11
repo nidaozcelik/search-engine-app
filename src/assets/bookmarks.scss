@@ -25,7 +25,6 @@
   color: #0b265d;
   display: flex;
   align-items: center;
-  padding-left: 1.2rem;
 }
 
 .bookmarks-title svg {
@@ -34,7 +33,7 @@
   height: 1.8rem;
   position: absolute;
   top: 0;
-  left: 0;
+  right: 0;
 }
 
 .bookmarks-content {
