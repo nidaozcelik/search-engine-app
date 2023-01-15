@@ -1,17 +1,13 @@
 .history {
-  margin-top: 2rem;
-}
-
-.history-accordion {
-  margin-top: 2rem;
-  height: 34rem;
-  overflow: scroll;
-  box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.1);
+  margin-top: 6rem;
 }
 
 .history-warning {
-  font-size: 18px;
-  color: grey;
+  margin-top: 6rem;
+  font-size: 1.2rem;
+  color: #3e4350;
+  text-align: center;
+  display: block;
 }
 
 .history-accordion-label {
@@ -25,11 +21,11 @@
   align-items: center;
   color: #41719f;
   font-weight: bold;
-  background-color: #fff;
   margin-top: 0.8rem;
   border-top-left-radius: 0.4rem;
   border-top-right-radius: 0.4rem;
-  font-size: 18px;
+  font-size: 1.2rem;
+  border: 1px solid #e7e7e7;
 }
 
 .history-accordion-label:hover {
@@ -45,11 +41,11 @@
 }
 
 .history-accordion-content {
-  padding: 0px 15px;
+  padding: 0px 1rem;
   margin: 0;
   margin-bottom: 0.8rem;
   height: 0;
-  font-size: 16px;
+  font-size: 1rem;
   overflow: hidden;
   position: relative;
   opacity: 0;
@@ -64,7 +60,7 @@
 .history-accordion-input:checked~.history-accordion-content {
   height: auto;
   opacity: 1;
-  padding: 15px;
+  padding: 1rem;
 }
 
 .history-accordion-input {

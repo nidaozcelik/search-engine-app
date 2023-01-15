@@ -12,7 +12,7 @@ import SearchCreateWord from './search-create-word'
 import PageLoading from '../loading/page-loading'
 import VoiceSearch from '../voice-search'
 import { SearchContext } from './search-context'
-const savedData = require('../../utilities/search-helper')
+import { save } from '../../utilities/search-helper'
 
 const Search = () => {
   const dispatch = useDispatch()
@@ -35,7 +35,7 @@ const Search = () => {
   useEffect(() => {
     if (data && searchedWord) {
       dispatch(setMeaning(data[0].meanings[0].definitions))
-      savedData(searchedWord, 'history')
+      save(searchedWord, 'history')
     }
   }, [dispatch, data, searchedWord])
 

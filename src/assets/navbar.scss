@@ -9,7 +9,7 @@
   margin: 6rem auto;
 }
 
-.search-title{
+.search-title {
   font-family: "Inter", sans-serif;
   font-size: 4rem;
   font-weight: bold;
@@ -22,32 +22,39 @@
 
 .navbar-menu {
   display: flex;
-  justify-content: flex-end;
-  margin-top: 2rem;
+  font-size: 1.2rem;
   cursor: pointer;
-  font-size: 18px;
+  position: fixed;
+  overflow: hidden;
+  top: 0;
+  z-index: 9;
+  background-color: #f7f7f7;
+  width: 40rem;
+  padding: 2rem 0;
 }
 
-.navbar-menu-link a {
+.navbar-menu a:first-child {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.navbar-menu a {
   margin-left: 1rem;
   text-decoration: none;
   color: #41719f;
 }
 
 .navbar-menu-info {
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: bold;
   color: #0b265d;
-}
-
-.history-page {
-  font-size: 20px;
 }
 
 @media (max-width: 480px) {
   .search-container {
     width: 22rem;
   }
+
   .search-title {
     font-size: 3rem;
   }

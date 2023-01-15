@@ -1,30 +1,35 @@
 .bookmarks {
   display: flex;
   flex-wrap: wrap;
-  margin-top: 2rem;
-  height: 34rem;
-  overflow: scroll;
+  margin-top: 6rem;
+  justify-content: space-between;
 }
 
 .bookmark {
   width: 19rem;
-  box-shadow: 10px 20px 20px 1px rgba(0, 0, 0, 0.05);
   padding: 1rem;
   margin-bottom: 1rem;
-  margin-right: 1rem;
   border-radius: 0.4rem;
   position: relative;
   border: 1px solid #e7e7e7;
 }
 
+.bookmark-warning {
+  margin-top: 6rem;
+  font-size: 1.2rem;
+  text-align: center;
+  display: block;
+  color: #3e4350;
+}
+
 .bookmarks-title {
-  font-size: 22px;
+  font-size: 1.4rem;
   font-weight: bold;
   border-bottom: 2px solid #000;
   border-color: #e7e4e4;
-  color: #0b265d;
   display: flex;
   align-items: center;
+  color: #41719f;
 }
 
 .bookmarks-title svg {
@@ -32,12 +37,18 @@
   width: 2rem;
   height: 1.8rem;
   position: absolute;
-  top: 0;
+  bottom: -10px;
   right: 0;
+  color: #3e4350;
+  cursor: pointer;
+}
+
+.bookmarks-title svg:hover {
+  color: #919cb1;
 }
 
 .bookmarks-content {
-  font-size: 12px;
+  font-size: 1rem;
   color: #41719f;
 }
 
@@ -57,4 +68,13 @@
   height: 1.4rem;
   color: #9f1313;
   cursor: pointer;
+}
+
+.bookmark-icon {
+  stroke: #0b265d;
+  fill: #fff;
+}
+
+.bookmark-icon-fill {
+  color: #3e4350;
 }
