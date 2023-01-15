@@ -5,7 +5,7 @@ const History = () => {
   const [items, setItems] = useState([])
   useEffect(() => {
     setItems(JSON.parse(localStorage.getItem('history') || []))
-  }, [])
+  }, [localStorage])
 
   return <div className='history'>
     {
