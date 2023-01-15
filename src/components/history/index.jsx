@@ -1,14 +1,19 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import WordMeaning from './word-meaning'
 
 const History = () => {
+  const [items, setItems] = useState([])
+  useEffect(() => {
+    setItems(JSON.parse(localStorage.getItem('history') || []))
+  }, [])
+
   return <div className='history'>
     {
-      (JSON.parse(localStorage.getItem('history')) || []).length === 0 ?
+      (items).length === 0 ?
         <span className='history-warning'>There is no data to show. Please search for word!</span>
         : <div className='history-accordion'>
           {
-            JSON.parse(localStorage.getItem('history')).map((value) => {
+            items.map((value) => {
               return <div key={value} className='history-accordion-item'>
                 <input type='checkbox' id={value} className='history-accordion-input' />
                 <label for={value} className='history-accordion-label'>
