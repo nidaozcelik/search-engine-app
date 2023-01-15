@@ -14,6 +14,12 @@
   border: 1px solid #e7e7e7;
 }
 
+@media (max-width: 480px) {
+  .bookmark {
+    width: 10rem;
+  }
+}
+
 .bookmark-warning {
   margin-top: 6rem;
   font-size: 1.2rem;
@@ -33,14 +39,13 @@
 }
 
 .bookmarks-title svg {
-  color: #0b265d;
   width: 2rem;
   height: 1.8rem;
   position: absolute;
   bottom: -10px;
   right: 0;
-  color: #3e4350;
   cursor: pointer;
+  fill: #3192b0;
 }
 
 .bookmarks-title svg:hover {
@@ -60,21 +65,11 @@
   margin-right: 0.5rem;
 }
 
-.bookmark-delete-icon {
-  position: absolute;
-  right: 0.4rem;
-  bottom: 0.6rem;
-  width: 2rem;
-  height: 1.4rem;
-  color: #9f1313;
-  cursor: pointer;
-}
-
 .bookmark-icon {
   stroke: #0b265d;
   fill: #fff;
 }
 
 .bookmark-icon-fill {
-  color: #3e4350;
+  fill: #3192b0;
 }
