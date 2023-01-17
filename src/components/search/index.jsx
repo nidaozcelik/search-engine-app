@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import Button from 'react-bootstrap/Button'
 import Toast from 'react-bootstrap/Toast'
 import ToastContainer from 'react-bootstrap/ToastContainer'
 import {
-  setSearchedWord, resetShowWord, setShowCreateModal, resetSearchedWord, resetNotifications, setShowNotification,
+  setSearchedWord, resetSearchedWord, resetNotifications, setShowNotification,
   setMeaning, resetMeaning, useGetWordQuery, setVoiceSearch
 } from '../../features'
 import SearchShowWord from './search-show-word'
-import SearchCreateWord from './search-create-word'
 import PageLoading from '../loading/page-loading'
 import VoiceSearch from '../voice-search'
 import { SearchContext } from './search-context'
@@ -16,7 +14,7 @@ import { save } from '../../utilities/search-helper'
 
 const Search = () => {
   const dispatch = useDispatch()
-  const { words: { showWord, searchedWord, meanings, voiceSearch }, createWord: { showCreateModal }, notifications: { notificationsList, showNotification } } = useSelector(state => state.words)
+  const { words: { showWord, searchedWord, voiceSearch }, notifications: { notificationsList, showNotification } } = useSelector(state => state.words)
   const [searchTerm, setSearchTerm] = useState('')
 
   const {
@@ -57,11 +55,6 @@ const Search = () => {
     resetNotificationModal()
   }
 
-  const handleOnClickCreateWord = () => {
-    dispatch(setShowCreateModal(true))
-    dispatch(resetShowWord())
-  }
-
   const resetSearchWord = () => {
     dispatch(resetSearchedWord())
   }
@@ -71,7 +64,6 @@ const Search = () => {
     showWord,
     notificationsList,
     showNotification,
-    showCreateModal,
     resetSearchWord,
     showNotificationModal,
     resetNotificationModal,
@@ -99,11 +91,6 @@ const Search = () => {
           </svg>
           <VoiceSearch />
         </div>
-        {
-          searchedWord && (!meanings && !isLoading) && <div className='search-button'>
-            <Button variant='secondary' onClick={handleOnClickCreateWord}>+</Button>
-          </div>
-        }
       </div>
       <div className='search-content'>
         {
@@ -120,7 +107,6 @@ const Search = () => {
             </Toast>
           }
         </ToastContainer>
-        {searchedWord && showCreateModal && <SearchCreateWord />}
       </div>
     </div>
   </SearchContext.Provider>

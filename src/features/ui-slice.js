@@ -7,10 +7,6 @@ const initialState = {
     searchedWord: '',
     voiceSearch: false
   },
-  createWord: {
-    createdWords: null,
-    showCreateModal: false
-  },
   notifications: {
     notificationsList: null,
     showNotification: false
@@ -36,20 +32,11 @@ export const words = createSlice({
     resetMeaning: (state, action) => {
       state.words.meanings = initialState.words.meanings
     },
-    createWord: (state, action) => {
-      state.createWord.createdWords = action.payload
-    },
     setShowWord: (state, action) => {
       state.words.showWord = action.payload
     },
     resetShowWord: (state, action) => {
       state.words.showWord = initialState.words.showWord
-    },
-    setShowCreateModal: (state, action) => {
-      state.createWord.showCreateModal = action.payload
-    },
-    resetShowCreateModal: (state, action) => {
-      state.createWord.showCreateModal = initialState.createWord.showCreateModal
     },
     setNotifications: (state, action) => {
       state.notifications.notificationsList = action.payload
@@ -69,11 +56,8 @@ export const {
   setVoiceSearch,
   setMeaning,
   resetMeaning,
-  createWord,
   setShowWord,
   resetShowWord,
-  setShowCreateModal,
-  resetShowCreateModal,
   setNotifications,
   resetNotifications,
   setShowNotification

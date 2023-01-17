@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux'
 import { save, remove } from '../../utilities/search-helper'
 
 const SearchShowWord = () => {
-  const { words: { searchedWord, meanings }, createWord: { createdWords } } = useSelector(state => state.words)
+  const { words: { searchedWord, meanings } } = useSelector(state => state.words)
 
   let localStorageValue = JSON.parse(localStorage.getItem('bookmarks'))
   let bookmarkClassName = (localStorageValue || []).includes(searchedWord) ? 'bookmark-icon-fill' : 'bookmark-icon'
@@ -28,8 +28,7 @@ const SearchShowWord = () => {
     {
       meanings && <div className='search-content-wrapper'>
         {
-          (meanings || (createdWords && createdWords[0].word === searchedWord)) && searchedWord &&
-          (meanings || createdWords || []).slice(0, 2).map(meaning => {
+          searchedWord && (meanings || []).slice(0, 2).map(meaning => {
             return <div key={Math.random()}>
               <div className='search-content-meaning'>
                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-double-right" viewBox="0 0 16 16">
